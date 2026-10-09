@@ -9,7 +9,7 @@ let users = [
     { name: "Charlie", age: 121 }
 ];
 
-function calculatePrice(age) {
+function calculatePrice(user) {
     let age = user.age
     if (age < 12 ) {
         return 5;
@@ -22,5 +22,7 @@ function calculatePrice(age) {
         }
 
 for(let i = 0; i < users.length; i++){
-    
+    let currentUser = [i];
+    let price = calculatePrice(currentUser);
+    console.log(`Name: ${currentUser.name}, need to pay: ${price}.`);
 }
