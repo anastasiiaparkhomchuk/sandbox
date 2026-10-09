@@ -3,7 +3,6 @@
 // і всередині циклу використовувати функцію для розрахунку вартості квитки.
 //  На екран вивести ім'я користувача та вартість квитка для нього. 
 let users = [
-    { name: "Daria", age: 12 },
     { name: "Anastasiia", age: 30 },
     { name: "Olena", age: 63 },
     { name: "Charlie", age: 121 }
@@ -22,7 +21,7 @@ function calculatePrice(user) {
         }
 
 for(let i = 0; i < users.length; i++){
-    let currentUser = [i];
+    let currentUser = users[i];
     let price = calculatePrice(currentUser);
     console.log(`Name: ${currentUser.name}, need to pay: ${price}.`);
 }
