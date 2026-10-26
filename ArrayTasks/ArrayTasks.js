@@ -1,0 +1,27 @@
+// Створити масив об'єктів користувачів - кожен користувач має два параметри: ім'я та вік. +
+// Розширити вирішення задачі: цикл повинен ітерувати через масив користувачів, 
+// і всередині циклу використовувати функцію для розрахунку вартості квитки.
+//  На екран вивести ім'я користувача та вартість квитка для нього. 
+let users = [
+    { name: "Anastasiia", age: 30 },
+    { name: "Olena", age: 63 },
+    { name: "Charlie", age: 121 }
+];
+
+function calculatePrice(user) {
+    let age = user.age
+    if (age < 12 ) {
+        return 5;
+    }
+     if (age >= 12 && age <= 60) {
+            return 10;
+        } else {
+            return 7;
+        }
+        }
+
+for(let i = 0; i < users.length; i++){
+    let currentUser = users[i];
+    let price = calculatePrice(currentUser);
+    console.log(`Name: ${currentUser.name}, need to pay: ${price}.`);
+}
