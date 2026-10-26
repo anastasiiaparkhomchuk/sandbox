@@ -52,6 +52,17 @@ const productsAvailabilityResponse = [
   }
 ];
 function getProductsForPage() {
-// your code here
+let availableProducts = productsResponse.filter((product) => {
+  let availability = productsAvailabilityResponse.find((item) => item.code === product.code);
+  return availability !== undefined && availability.available === true;
+});
+return availableProducts.map((product) => {
+  let availability = productsAvailabilityResponse.find ((item) => item.code === product.code);
+  return {
+    title: product.title,
+    description: product.description,
+    price: availability.price
+  };
+})
 }
 console.log('Products on UI: ' + getProductsForPage());
