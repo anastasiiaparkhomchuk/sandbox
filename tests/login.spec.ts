@@ -7,7 +7,7 @@ test.describe('Login', () => {
    const loginPage = new LoginPage(page);
 
    await loginPage.open();
-   await loginPage.login('standard_user', 'secret_sauce');
+   await loginPage.login(process.env.STANDART_USER!, process.env.STANDART_PASSWORD!);
 
    await expect(page).toHaveURL(/.*inventory/);
  });
