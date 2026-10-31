@@ -6,7 +6,7 @@ import playwright from 'eslint-plugin-playwright';
 export default [
     js.configs.recommended,
     {
-        files: ['**/*.ts'],
+        files: ['**/*.{js, ts'],
         languageOptions:{
             parser: tsParser,
             parserOptions:{
