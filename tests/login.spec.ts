@@ -1,5 +1,7 @@
 import { test, expect} from '@playwright/test';
 import { LoginPage } from '../pageObject/login_page';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 test.describe('Login', () => {
   
