@@ -1,36 +1,42 @@
 name: Playwright Tests & Linter
 
 on:
- push:
-   branches: [ main, aqa-tasks ]
- pull_request:
-   branches: [ main, aqa-tasks ]
+  push:
+    branches: [ main, aqa-tasks ]
+  pull_request:
+    branches: [ main, aqa-tasks ]
 
 jobs:
- test:
-   timeout-minutes: 60
-   runs-on: ubuntu-latest
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
 
-   steps:
-   - name: Checkout code
-     uses: actions/checkout@v4
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-   - name: Set up Node.js
-     uses: actions/setup-node@v4
-     with:
-       node-version: 20
-       cache: 'npm'
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
 
-   - name: Install dependencies
-     run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-   - name: Run ESLint
-     run: npm run lint
+      - name: Run ESLint
+        run: npm run lint
 
-   - name: Install Playwright Browsers
-     run: npx playwright install --with-deps
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
 
-   - name: Run Playwright tests
-     run: npx playwright test
-     env:
-       CI: true
+      - name: Run Playwright tests
+        env:
+          CI: true
+        run: npx playwright test
+
+      - name: Run Playwright tests with secrets
+        env:
+          STANDART_USER: ${{ secrets.STANDART_USER }}
+          STANDART_PASSWORD: ${{ secrets.STANDART_PASSWORD }}
+        run: npx playwright test
