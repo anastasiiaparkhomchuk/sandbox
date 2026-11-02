@@ -33,10 +33,6 @@ jobs:
       - name: Run Playwright tests
         env:
           CI: true
-        run: npx playwright test
-
-      - name: Run Playwright tests with secrets
-        env:
           STANDART_USER: ${{ secrets.STANDART_USER }}
           STANDART_PASSWORD: ${{ secrets.STANDART_PASSWORD }}
         run: npx playwright test
