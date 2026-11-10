@@ -2,9 +2,9 @@ name: Playwright Tests & Linter
 
 on:
   push:
-    branches: [ main, aqa-tasks, swagLabsTests ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, aqa-tasks, swagLabsTests ]
+    branches: [ main ]
 
 jobs:
   test:
