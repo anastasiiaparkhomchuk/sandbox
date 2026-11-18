@@ -4,7 +4,7 @@ import { SwagLabsPage } from '../pageObject/swagLabs_page';
 type MyFixtures = {
  loginPage: LoginPage;
  swagLabs: SwagLabsPage;
- loggedPage: void; 
+ loginWithStandardUser: void; 
 };
 export const test = base.extend<MyFixtures>({
  loginPage: async ({ page }, use) => {
@@ -13,7 +13,7 @@ export const test = base.extend<MyFixtures>({
  swagLabs: async ({ page }, use) => {
    await use(new SwagLabsPage(page));
  },
- loggedPage: async ({ page, loginPage }, use) => {
+ loginWithStandardUser: async ({ loginPage }, use) => {
    await loginPage.open();
    await loginPage.login(process.env.STANDART_USER!, process.env.STANDART_PASSWORD!);
    await use();
