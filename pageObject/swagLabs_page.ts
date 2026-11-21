@@ -6,6 +6,7 @@ export class SwagLabsPage extends BasePage {
  readonly addToCartButton: Locator;
  readonly removeButton: Locator;
  readonly cartBadge: Locator;
+ readonly cartLink: Locator;
 
  constructor(page: Page) {
   super(page);
@@ -13,6 +14,7 @@ export class SwagLabsPage extends BasePage {
    this.addToCartButton = page.locator('[data-test="add-to-cart-sauce-labs-backpack"]');
    this.removeButton = page.locator('[data-test="remove-sauce-labs-backpack"]');
    this.cartBadge = page.locator('[data-test="shopping-cart-badge"]');
+   this.cartLink = page.locator('[data-test="shopping-cart-link"]');
  }
 
  async addFirstProductToCart() {
@@ -23,4 +25,7 @@ export class SwagLabsPage extends BasePage {
    await this.removeButton.first().click();
  }
 
+ async openCart(){
+  await this.cartLink.click();
+ }
 }
