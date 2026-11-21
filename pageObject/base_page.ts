@@ -1,7 +1,7 @@
-import { Page } from '@playwright/test'; // Ts розуміє з яким об'єктом ми працюємо
+import { Page } from '@playwright/test'; 
 
 export class BasePage {
-readonly page: Page; // тепер не можемо перезаписати сторінку
+readonly page: Page; 
 
 constructor(page:Page){
     this.page = page;
